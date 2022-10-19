@@ -35,7 +35,7 @@ class DatabaseHelper {
   DatabaseHelper.internal();
 
   ///
-  /// get the dictionary data using [DatabaseHelper] class.
+  /// get the dictionary data using dictionary_database.db class.
   ///
   Future<Database> getDB() async {
     var databasesPath = await getDatabasesPath();

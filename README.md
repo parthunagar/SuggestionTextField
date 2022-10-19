@@ -1,7 +1,19 @@
 
+[![pub package](https://img.shields.io/pub/v/http.svg)](https://pub.dev/packages/http)
+[![package publisher](https://img.shields.io/pub/publisher/http.svg)](https://pub.dev/packages/http/publisher)
+
 ## Description
 
 This package has all the features of a flutter text field, as well as word suggestions and a list of words that are connected to the character you are now typing.
+
+
+## Support
+
+A Flutter plugin for Suggestion TextField.
+
+|             | Android | iOS | Linux | macOS | Web | Windows |
+|-------------|---------|-----|-------|-------|-----|---------|
+| **Support** | Any     | Any | Any   | Any   | Any | Any     |
 
 ## Features
 
