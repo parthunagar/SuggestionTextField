@@ -6,14 +6,6 @@ class Const {
   /// All word binding for applications based on the this [Function].
   /// get the dictionary data using [DatabaseHelper] class.
   ///
-  getDictionaryData() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    DatabaseHelper helper = DatabaseHelper();
-    Database? db;
-    db = await helper.getDB();
-    debugPrint('db : $db');
-
-  }
 
 
   ///

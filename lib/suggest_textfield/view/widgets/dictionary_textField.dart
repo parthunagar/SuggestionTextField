@@ -199,7 +199,7 @@ class _SuggestionTextFieldState extends State<SuggestionTextField> {
   ///
   CustomController? cSearch = CustomController();
   bool isItemClicked = false;
-  DatabaseHelper dbHelper = DatabaseHelper();
+  DatabaseHelper dbHelper = DatabaseHelper.instance;
   List<String> names = [];
 
   List addText = [];
@@ -213,7 +213,6 @@ class _SuggestionTextFieldState extends State<SuggestionTextField> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Const().getDictionaryData();
     widget.focusNode = FocusNode();
     controllerListener();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -222,6 +221,15 @@ class _SuggestionTextFieldState extends State<SuggestionTextField> {
     focusNodeListener();
   }
 
+  getTypeValue(){
+    var a = cSearch!.text.substring(0, cSearch!.text.length);
+    debugPrint('onChangedVal.substring => a : $a');
+    debugPrint('onChangedVal.substring => a.length : ${a.length}');
+    if(cSearch!.text.endsWith(' ')){
+      suggestString = '';
+      debugPrint("cSearch!.text.endsWith(' ') : ${cSearch!.text.endsWith(' ')}");
+    }
+  }
   controllerListener() {
     cSearch!.addListener(() async {
       addText = cSearch!.text.split(' ');
@@ -249,7 +257,7 @@ class _SuggestionTextFieldState extends State<SuggestionTextField> {
       } else {
         try {
           // debugPrint('addText.last : ${addText.last}');
-          await dbHelper.getDataWithQuery(addText.last).then((value) {
+          await dbHelper.query(addText.last).then((value) {
             if (value != null) {
               names.clear();
               for (var f in value) {
